@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailgun.Models.SignedEvent", "Mailgun.Models.SignedEvent\Mailgun.Models.SignedEvent.csproj", "{1BEB07E0-C800-45A1-990E-5F64962B8C9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun.Models.SignedEvent.Tests", "Mailgun.Models.SignedEvent.Tests\Mailgun.Models.SignedEvent.Tests.csproj", "{8E4EF695-2A4F-4FF9-913D-541F4AF7F841}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BEB07E0-C800-45A1-990E-5F64962B8C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEB07E0-C800-45A1-990E-5F64962B8C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEB07E0-C800-45A1-990E-5F64962B8C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEB07E0-C800-45A1-990E-5F64962B8C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E4EF695-2A4F-4FF9-913D-541F4AF7F841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E4EF695-2A4F-4FF9-913D-541F4AF7F841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E4EF695-2A4F-4FF9-913D-541F4AF7F841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E4EF695-2A4F-4FF9-913D-541F4AF7F841}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC36B6DF-0548-4665-AF32-553ED3E0B3A4}
+	EndGlobalSection
+EndGlobal
