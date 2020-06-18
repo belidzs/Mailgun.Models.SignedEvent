@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFrameworks>netstandard1.6;net461</TargetFrameworks>
+    <Authors>Balazs Keresztury</Authors>
+    <Copyright>Copyright (c) 2020 Balazs Keresztury</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.0-rc0</Version>
   </PropertyGroup>
 
   <ItemGroup>
