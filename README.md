@@ -64,7 +64,7 @@ Since the signature is created using the signing server's own time you can speci
 
 Mailgun generates JSON data using an unusual naming convention with dashes between words. This means that the verb `is valid` will be encoded as `is-valid` even though the convention is to encode names as *camelCase* (resulting in `isValid`).
 
-There are ways to configure most JSON serializers to handle this, but this topic is out of scope of this project.
+[There are ways](https://github.com/belidzs/DashedJsonNamingPolicy) to configure most JSON serializers to handle this, but this topic is out of scope of this project.
 
 ### Structure Is Constantly Changing
 Please note that these events [can apparently change their structure anytime](https://documentation.mailgun.com/en/latest/api-events.html#event-structure), so don't be surprised if the data you've just received contains new fields.

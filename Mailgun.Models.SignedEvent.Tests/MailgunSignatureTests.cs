@@ -13,10 +13,10 @@ namespace Mailgun.Models.SignedEvent.Tests
     /// </summary>
     public class MailgunSignatureTests
     {
-        private DateTime _originalTimestamp;
-        private TimeSpan _timeSinceOriginalTimestamp;
-        private MailgunSignature _validSignature;
-        private string _apiKey;
+        private DateTime originalTimestamp;
+        private TimeSpan timeSinceOriginalTimestamp;
+        private MailgunSignature validSignature;
+        private string apiKey;
 
         /// <summary>
         /// Sets up test fixture with a know valid signature.
@@ -24,12 +24,12 @@ namespace Mailgun.Models.SignedEvent.Tests
         [SetUp]
         public void Setup()
         {
-            this._originalTimestamp = new DateTime(2020, 6, 18, 11, 55, 0).ToUniversalTime();
-            var originalTimestampAsUnixEpoch = (this._originalTimestamp - DateTime.UnixEpoch).TotalSeconds.ToString();
-            this._timeSinceOriginalTimestamp = DateTime.UtcNow - this._originalTimestamp;
-            this._apiKey = "ffffffffffffffffffffffffffffffff-ffffffff-ffffffff";
+            this.originalTimestamp = new DateTime(2020, 6, 18, 11, 55, 0).ToUniversalTime();
+            var originalTimestampAsUnixEpoch = (this.originalTimestamp - DateTime.UnixEpoch).TotalSeconds.ToString();
+            this.timeSinceOriginalTimestamp = DateTime.UtcNow - this.originalTimestamp;
+            this.apiKey = "ffffffffffffffffffffffffffffffff-ffffffff-ffffffff";
 
-            this._validSignature = new MailgunSignature()
+            this.validSignature = new MailgunSignature()
             {
                 Signature = "de4b938580bb4d84f710cbb8bfa7d224bb2262c8f644f558c2901c1ae645bb03",
                 Token = "ffffffffffffffffffffffffffffffffffffffffffffffffff",
@@ -43,7 +43,7 @@ namespace Mailgun.Models.SignedEvent.Tests
         [Test]
         public void Valid()
         {
-            Assert.That(this._validSignature.IsValid(this._apiKey, this._timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.True);
+            Assert.That(this.validSignature.IsValid(this.apiKey, this.timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.True);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Mailgun.Models.SignedEvent.Tests
         [Test]
         public void TooOld()
         {
-            Assert.That(this._validSignature.IsValid(this._apiKey, this._timeSinceOriginalTimestamp - new TimeSpan(0, 1, 0)), Is.False);
+            Assert.That(this.validSignature.IsValid(this.apiKey, this.timeSinceOriginalTimestamp - new TimeSpan(0, 1, 0)), Is.False);
         }
 
         /// <summary>
@@ -61,9 +61,9 @@ namespace Mailgun.Models.SignedEvent.Tests
         [Test]
         public void BadSignature()
         {
-            this._validSignature.Signature += "x";
+            this.validSignature.Signature += "x";
 
-            Assert.That(this._validSignature.IsValid(this._apiKey, this._timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.False);
+            Assert.That(this.validSignature.IsValid(this.apiKey, this.timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.False);
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace Mailgun.Models.SignedEvent.Tests
         [Test]
         public void BadToken()
         {
-            this._validSignature.Token += "x";
+            this.validSignature.Token += "x";
 
-            Assert.That(this._validSignature.IsValid(this._apiKey, this._timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.False);
+            Assert.That(this.validSignature.IsValid(this.apiKey, this.timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.False);
         }
 
         /// <summary>
@@ -83,9 +83,9 @@ namespace Mailgun.Models.SignedEvent.Tests
         [Test]
         public void BadApiKey()
         {
-            this._apiKey += "x";
+            this.apiKey += "x";
 
-            Assert.That(this._validSignature.IsValid(this._apiKey, this._timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.False);
+            Assert.That(this.validSignature.IsValid(this.apiKey, this.timeSinceOriginalTimestamp + new TimeSpan(0, 1, 0)), Is.False);
         }
     }
 }
