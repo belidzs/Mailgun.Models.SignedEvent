@@ -5,7 +5,14 @@
     <Authors>Balazs Keresztury</Authors>
     <Copyright>Copyright (c) 2020 Balazs Keresztury</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.0-rc0</Version>
+    <Version>1.0.0-rc1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/belidzs/Mailgun.Models.SignedEvent</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/belidzs/Mailgun.Models.SignedEvent</RepositoryUrl>
+    <PackageTags>mailgun api webhook email</PackageTags>
+    <Description>Implements data model for incoming Mailgun events to use with your custom Mailgun webhooks.
+
+This library can be used as a data model for the deserialization of this data with any JSON serializer of your choice. It even provides a handy function to verify its cryptographic signature.</Description>
   </PropertyGroup>
 
   <ItemGroup>
