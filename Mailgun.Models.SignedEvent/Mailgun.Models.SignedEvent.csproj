@@ -6,6 +6,15 @@
     <Copyright>Copyright (c) 2020 Balazs Keresztury</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.0-rc0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/belidzs/Mailgun.Models.SignedEvent</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/belidzs/Mailgun.Models.SignedEvent</RepositoryUrl>
+    <PackageTags>mailgun api webhook</PackageTags>
+    <Description>Implements the data model for Mailgun events to use with custom webhooks.
+
+This library can be used as a data model for the deserialization of an incoming event data with any JSON serializer of your choice. It even provides a handy function to verify its cryptographic signature.
+
+Since it targets .NET Standard 1.6 it is compatible with a wide variety of platforms (such as .NET Framework 4.6.1, .NET Core 1.0 and up).</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,10 +1,10 @@
-# Mailgun.Models.SignedEvent for Mailgun webhooks
+# Mailgun.Models.SignedEvent for incoming Mailgun webhooks
 
-Implements the data model for Mailgun events to use with custom webhooks.
+Implements the data model for incoming Mailgun events to use with your custom webhooks.
 
 This library can be used as a data model for the deserialization of an incoming event data with any JSON serializer of your choice. It even provides a handy function to [verify its cryptographic signature](https://documentation.mailgun.com/en/latest/user_manual.html#webhooks).
 
-Since it targets [.NET Standard 1.6](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) it is compatible with a wide variety of platforms (such as .NET Framework 4.6.1, .NET Core 1.0 and up).
+Since it targets [.NET Standard 1.6](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) it is compatible with a wide variety of platforms (such as .NET Framework 4.6.1, .NET Core 1.0 and newer).
 
 ## Background
 
@@ -42,14 +42,14 @@ public class DeliveredController : ControllerBase
 
 A `SignedEvent` contains a `Signature` and the actual `Event`. While not mandatory it's recommended to check the signature to make sure it was actually signed by Mailgun.
 
-Since the signature is created using the actual timestamp you can specify how old a signature can be to still considered as valid. It is set to 10 minutes by default.
+Since the signature is created using the server time you can specify how old a signature can be to still consider as valid. By default this is 10 minutes.
 
 ## Important Notes
 ### Unusual JSON Naming Convention
 
-Mailgun sends JSON data using an unusual naming convention with dashes between words. This means that the verb `is valid` will be encoded as `is-valid` even though the convention is to encode names as *camelCase* (resulting in `isValid`).
+Mailgun generates JSON data using an unusual naming convention with dashes between words. This means that the verb `is valid` will be encoded as `is-valid` even though the convention is to encode names as *camelCase* (resulting in `isValid`).
 
 There are ways to configure most JSON serializers to handle this, but this topic is out of scope of this project.
 
 ### Structure Is Constantly Changing
-Please note that these events [can apparently change their structure](https://documentation.mailgun.com/en/latest/api-events.html#event-structure), so don't be surprised if the data you've received doesn't fully correspond to their documentation. If you discover a change (which can only be an addition according to their promise) you're welcome to open a PR.
+Please note that these events [can apparently change their structure anytime](https://documentation.mailgun.com/en/latest/api-events.html#event-structure), so don't be surprised if the data you've just received contains new fields. If you discover a change (which can only be an addition according to their documentation) you're welcome to open a PR.
