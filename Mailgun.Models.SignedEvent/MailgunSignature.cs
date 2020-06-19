@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -11,23 +12,20 @@ namespace Mailgun.Models.SignedEvent
 {
     public class MailgunSignature : IMailgunSignature
     {
+        [Required]
         public string Timestamp { get; set; }
 
+        [Required]
         public string Token { get; set; }
 
+        [Required]
         public string Signature { get; set; }
 
-        /// <summary>
-        /// Checks if the signature is valid based on the provided API key.
-        /// https://documentation.mailgun.com/en/latest/user_manual.html#webhooks.
-        /// </summary>
-        /// <param name="apiKey">mailgun API key.</param>
-        /// <param name="tolerance">Maximum acceptable time difference between the creation of the signature and now.</param>
-        /// <returns>True if the signature is valid.</returns>
+        /// <inheritdoc />
         public bool IsValid(string apiKey, TimeSpan tolerance)
         {
             // parse timestamp as a DateTime object
-            var timestamp = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc) + TimeSpan.FromSeconds(Convert.ToDouble(this.Timestamp));
+            var timestamp = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc) + TimeSpan.FromSeconds(Convert.ToDouble(Timestamp));
             if (DateTime.UtcNow - timestamp > tolerance)
             {
                 // if the signature was made too long ago, return false
@@ -39,7 +37,7 @@ namespace Mailgun.Models.SignedEvent
             {
                 Key = Encoding.ASCII.GetBytes(apiKey),
             };
-            var calculated_signature = hasher.ComputeHash(Encoding.ASCII.GetBytes(this.Timestamp + this.Token));
+            var calculated_signature = hasher.ComputeHash(Encoding.ASCII.GetBytes(Timestamp + Token));
 
             // convert calculated signature to hexdigest format
             string hash_hex = string.Empty;
@@ -49,18 +47,13 @@ namespace Mailgun.Models.SignedEvent
             }
 
             // compare
-            return this.Signature.Equals(hash_hex);
+            return Signature.Equals(hash_hex);
         }
 
-        /// <summary>
-        /// Checks if the signature is valid based on the provided API key with a maximum allowed time skew of 10 minutes.
-        /// https://documentation.mailgun.com/en/latest/user_manual.html#webhooks.
-        /// </summary>
-        /// <param name="apiKey">malgun API key.</param>
-        /// <returns>True if the signature is valid.</returns>
+        /// <inheritdoc />
         public bool IsValid(string apiKey)
         {
-            return this.IsValid(apiKey, new TimeSpan(0, 10, 0));
+            return IsValid(apiKey, new TimeSpan(0, 10, 0));
         }
     }
 }
