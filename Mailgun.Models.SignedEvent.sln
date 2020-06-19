@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailgun.Models.SignedEvent", "Mailgun.Models.SignedEvent\Mailgun.Models.SignedEvent.csproj", "{1BEB07E0-C800-45A1-990E-5F64962B8C9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun.Models.SignedEvent.Tests", "Mailgun.Models.SignedEvent.Tests\Mailgun.Models.SignedEvent.Tests.csproj", "{8E4EF695-2A4F-4FF9-913D-541F4AF7F841}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailgun.Models.SignedEvent.Tests", "Mailgun.Models.SignedEvent.Tests\Mailgun.Models.SignedEvent.Tests.csproj", "{8E4EF695-2A4F-4FF9-913D-541F4AF7F841}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{662C3973-3245-4C91-B884-315F126B1B3A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

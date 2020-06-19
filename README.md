@@ -4,9 +4,9 @@
 
 Implements data model for incoming Mailgun events to use with your custom Mailgun webhooks.
 
-This library can be used as a data model for the deserialization of this data with any JSON serializer of your choice. It even provides a handy function to [verify its cryptographic signature](https://documentation.mailgun.com/en/latest/user_manual.html#webhooks).
+This library can be used as the data model for the deserialization process with basically any JSON deserializer library of your choice. It even provides a handy function to [verify its cryptographic signature](https://documentation.mailgun.com/en/latest/user_manual.html#webhooks).
 
-Since it targets .NET Standard 1.6 it is [compatible](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) with a wide variety of platforms (such as .NET Framework 4.6.1, .NET Core 1.0 and newer).
+Since it targets [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) 1.3 and .NET Framework 4.5 it is compatible with a wide variety of platforms.
 
 ## Background
 
