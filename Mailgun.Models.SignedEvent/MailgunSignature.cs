@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Mailgun.Models.SignedEvent
 {
-    public class MailgunSignature
+    public class MailgunSignature : IMailgunSignature
     {
         public string Timestamp { get; set; }
 
