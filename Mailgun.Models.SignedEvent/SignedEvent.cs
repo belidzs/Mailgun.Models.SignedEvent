@@ -10,7 +10,7 @@ namespace Mailgun.Models.SignedEvent
     public class SignedEvent
     {
         [Required]
-        public IMailgunSignature Signature { get; set; }
+        public MailgunSignature Signature { get; set; }
 
         [Required]
         public MailgunEvent EventData { get; set; }
