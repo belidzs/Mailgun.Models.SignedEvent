@@ -11,7 +11,7 @@ namespace Mailgun.Models.SignedEvent.EventDetails
 
         public string MxHost { get; set; }
 
-        public string Code { get; set; }
+        public int Code { get; set; }
 
         public string Description { get; set; }
 
