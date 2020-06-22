@@ -16,5 +16,7 @@ namespace Mailgun.Models.SignedEvent.EventDetails
         public bool IsTestMode { get; set; }
 
         public bool IsDelayedBounce { get; set; }
+
+        public bool IsCallback { get; set; }
     }
 }
