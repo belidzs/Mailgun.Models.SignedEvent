@@ -12,7 +12,7 @@ namespace Mailgun.Models.SignedEvent.EventDetails
     {
         public Headers Headers { get; set; }
 
-        public List<string> Attachments { get; set; }
+        public List<Attachment> Attachments { get; set; }
 
         public List<string> Recipients { get; set; }
 
